@@ -1,0 +1,57 @@
+   //procedure DibujarMapa(Mapa: UMapa.PtrMapa); (*Tendría que ir en una UNIT arriba de UIMG y UMAPA en output*)
+   (*Dada una matriz mapa, dibuja el correspondiente mapa en form1.image1*)
+
+
+   (*Tendría que ir en una UNIT arriba de UIMG y UMAPA en output*)
+   (*
+   procedure DibujarMapa(Mapa: UMapa.PtrMapa);
+   var
+      pos_x, pos_y, x,y: Integer;
+   //img : TBitmap;
+   begin
+      //AssignNFO lo tiene que hacer solo una vez
+      //Esta funcion tiene que ser llamada desde el main, así dejo de hacer estas cosas chanchas.
+
+      //IF not(NFO_ya_asignada) then
+      //begin
+         //ShowMessage('Asigna');
+         AssignNFO(Mapa); //antes de empezar a dibujar debo asignar info al terreno.
+      //end;  // es chancho definir esa variable para usarla una vez nada más. Además dibujar mapa se debe encargar solo de dibujar el mapa, no de asignar info, ni de establecer el tamaño de IMAGE1.
+
+
+      //Esto actúa sobre form1, tendría que estar ahí
+      //RES.form1.Image1.Width := tamanio*Blok_Width;
+      //RES.form1.Image1.Height := tamanio*(Blok_Height + 1) + 2; //el +2 es para que se vea el margen que dejé up y dwn
+      RES.form1.Image1.Canvas.Brush.Color := rgb(150,0,0);
+      RES.form1.Image1.Canvas.Pen.Color := ClBlack;
+      RES.form1.Image1.Canvas.Rectangle(0,0,form1.Image1.Width,form1.Image1.Height);
+      //Esto actúa sobre form1, tendría que estar ahí
+
+      //A partir de acá realmente empieza el dibujar mapa.
+      pos_x := trunc(Blok_Width*High(Mapa^)/2) - trunc(Blok_Width/2);
+      pos_y := 1; // para que deje margen de  1px arriva
+
+      for y:=0 to High(Mapa^) do
+      begin
+         for x:=0 to High(Mapa^[y]) do
+         begin
+            //Para construcciones que son mas altas que el height del rombo,
+            //hay que hacer otros casos, sabiendo cuantos px sobran, puedo
+            //poner la imagen en el lugar correcto.
+            Form1.Image1.Canvas.Draw(pos_x, pos_y, Mapa^[y,x].TerIMG^);
+
+            
+            if (Mapa^[y,x].TerSel) then //Si el terreno está seleccionado, dibuja el BMP de seleccionado.
+            begin
+               RES.Form1.Image1.Canvas.Draw(pos_x, pos_y, Selected.BMP); //Dibuja el BMP de seleccionado.
+            end;
+
+
+            pos_x := pos_x + trunc(Blok_Width/2);
+            pos_y := pos_y + trunc((Blok_Height + 1)/2);
+         end; //for x
+         pos_x := pos_x - (High(Mapa^[y]) + 1)*trunc(Blok_Width/2);
+         pos_y := pos_y - (High(Mapa^) - 1)*trunc((Blok_Height + 1)/2);
+      end; //for y
+   end; //dibujar mapa
+   *)

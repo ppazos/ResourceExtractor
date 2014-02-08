@@ -1,0 +1,7 @@
+Bucle (margenes)
+
+
+Dibujar el mapa (margenes)
+Dibujar personas trabajando
+
+si ek tiempo transcurrido es menor que el deseado, esperar la diferencia.

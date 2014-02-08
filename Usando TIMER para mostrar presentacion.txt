@@ -1,0 +1,17 @@
+The following two event handlers display and close a form called SplashScreen before the application's main form opens. The constant Startup is declared in Form1's interface part. The first event handler calls the Show method of SplashScreen from Form1's OnActivate event. 
+
+procedure TForm1.FormActivate(Sender: TObject);
+begin
+ if Startup then
+ begin
+ Startup := False;
+ SplashScreen.Show;
+ end;
+end;
+
+SplashScreen contains a Timer component whose Interval property is set to 3000, so the form is displayed for three seconds and then closes. The form's Close method is attached to the timer component's OnTimer event. 
+
+procedure TForm2.Timer1Timer(Sender: TObject);
+begin
+ Close;
+end;

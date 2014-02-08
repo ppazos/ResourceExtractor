@@ -1,0 +1,35 @@
+Cada persona extrae una cantidad determinada de recurso por turno, cuando dse crea una nueva persona esa cantidad es 1 (p.e. se extrae un kilo de recurso por turno (mes)). Las cantidades de recurso extraídas hasta el momento que forman parte de la estructura del tipo persona, pueden funcionar como una medida de expereincia, entonces cuanto más saque de un recurso, con el tiempo, podrá sacar más de ese recurso por turno, en definitiva hay que hacer una función que se ejecute al fin de un turno que revise las cantidades extraídas de cada recurso por cada persona, y si alguna cantidad llega a determinado valor, incrementar lo  que esa persona saca de ese recurso por turno, es como subir de nivel a la persona.
+
+Entonces podria haber otro campo en la estructura de persona que fuera el nivel, aunque el nivel puede verse directamente viendo las cantidades extraídas de cada recurso, entonces es al pedo meter el nivel.
+
+Estaría bueno ponerle nombres a las personas que tienen más nivel en determinado recurso, como en el colonization, maestro maderero, maestro granjero, etc.
+
+Entonces los niveles podrían ser p.e. de 1 a 3 ó 4.
+
+1-- nada (solo tiene titulo de persona o villager). Cuando se crea una persona, su nivel es 1.
+2-- aprendiz (granjero, leñador, minero).
+3-- maestro.
+4-- experto.
+
+No es necesario poner los títulos en la estructura de la persona, ya que si queremos ver que titulos tiene una persona, lo único que hay que hacer es ver cuanto de cada recurso tiene extraído hasta el momento, comparando con valores establecidos de antemano, sale el nivel o el título (o titulos) de la persona. (Puede ser una lista de strings).
+
+p.e. ObtenerNivelPersona ó ObtenerTitulosPersona. El primero podría tirar 3 ints, uno por cada recurso, 1 indica nada, 4 experto. Podría tener:
+
+(1,2,4)
+- Nada en granjero.
+- Aprendiz leñador.
+- Experto Minero.
+
+Claro que si luego agrego más recursos, esto tendría que cambiar, es decir, tirar más numeros.
+
+
+Sería bueno que el gráfico de la persona cambiara a medida que gana títulos. O que muestre al lado de una persona su "rango".
+
+Hasta ahora lo único seleccionable es el terreno, pero con una función puedo acceder a la persona que está trabajando en el terreno, pero tendría que hacer algo que seleccionara a las personas directamente, ya que por ahora no puedo acceder a las personas que no están trabajando.
+
+Podría haber un selecter con todas las personas creadas que pueda usar para seleccionar a las personas, y cuando una persona está seleccionada, poner un "aura" amarillo al rededor para saber que está selecconada, como el rombo rojo del terreno seleccionado. Por esta razón talvez sea factible poner un campo que sea si la persona está seleccionada en el tipo de dato persona, pero estaría poniendo una variable más por cada persona, cuando lo único que me interesa el una (la que está seleccionada), entonces de alguna manera tendría que crear una variable que diga que persona está seleccionada en este momento (sería un puntero a esa persona dentro de la LDP), cuando deselecciono le puntero va a NIL. Y podría haber funciones como HayPersonaSeleccionada, etc. Esto tendría que ser dentro de LDP.
+
+La última cosa que se me ocurre es que cuando las personas lleguen a cierta edad, se mueran.
+Esto se puede hacer a lo bestia, o a medida que pasan los turnos, podrían verse cosas como condiciones de vida en una ciudad y con esas cosas varían los promedios de vida, es decir que la edad de muerte de una persona varíe respecto a cosas de la ciudad, poe ejemplo algunas construcciones, o cuanta comida hay almacenada, etc. Enctonces los promedios varían y al fin de cada turno se puede establecer un intervalo variable centrado en el promedio de vida y si alguna persona tiene la edad denro o más allá de ese intervalo, se muere. Así se logra controlar que no se puedan hacer expertos en todos los recursos, lo que no tiene gracia, y a medida que creamos unas personas y se mueren otras, mantenermos un orden y cierto grado de realidad en la simulación.
+
+También sería bueno poner nombres a las personas para dar cierta personalidad a cada una, y puede haber varias generaciones con el mismo nombre p.e. Pablo I, Pablo II, Pablo III, etc. Claro que hay que pensar como se guardan los nombres y como se asignan al crear una nueva persona.

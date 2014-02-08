@@ -1,0 +1,4 @@
+Hacer determinarLugar y el otro que dado el lugar tira las coordenadas, con bipartición.
+(tomo el medio, si es mayor busco arriba, meno, abajo, etc) -> Acorta de n a log(n) el tiempo.
+
+Poner cotas inferiores a los objetos del mapa.

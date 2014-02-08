@@ -1,0 +1,67 @@
+Especificación de las operaciones dentro del Unit Lista De Personas.
+Estas operaciones tienen que ser suficientes como para trabajar, modificar, crear, eliminar, consultar y todo lo necesario para poder trabajar sin limitaciones con las LDPs desde otras Units, sin acceder directamente a la representción del tipo de dato LDP. Logrando ese objetivo, hacemos Units escalables formando un programa sólido, fácil de editar, modificar y actualizar, con código que es reusable y entendible para otros programadores.
+
+El tipo de dato ListaDePersonas está implementado en la Unit ULiPer.pas.
+
+*** CONS *** ************************************************************************
+
+function CrearListaDePersonas(): ListaDePersonas;
+   (*Retorna una nueva lista de personas vacía*)
+
+procedure AgregarPersonaListaDePersonas (P: Persona; var L: ListaDePersonas);
+   (*Agrega una pesona a la lista de personas L*)
+
+*** SEL *** ************************************************************************
+
+function ObtenerPrimerNodoListaDePersonas (L: ListaDePersonas): Persona;
+   (*Devuelve la primer persona de la lista*)
+
+function ObtenerUltimoNodoListaDePersonas (L: ListaDePersonas): Persona;
+   (*Devuelve la última persona de la lista*)
+
+function ObtenerPersonaTrabajandoCoordsLDP (x,y: Integer; L: ListaDePersonas): Persona;
+   (* PRECONDICION: Debe haber una persona trabajando en la posicion x,y del mapa.
+      HayAlguienTrabajancoCoords(x,y,L) = TRUE;
+      Devuelve la persona que está trabajando en la posicion x,y. *)
+
+*** PRED *** ************************************************************************
+
+function EsVaciaListaDePersonas (L: ListaDePersonas): Boolean;
+   (*TRUE si L es vacia, si no tiene personas, si es NIL*)
+
+function HayAlguienTrabajandoLDP (L: ListaDePersonas): Boolean;
+   (*PRECONDICION: EsVaciaListaDePersonas(L) = FALSE.
+     TRUE si hay por lo menos una persona trabajando en la lista L*)
+
+function HayAlguienTrabajandoCoords (x,y: Integer; L: ListaDePersonas): Boolean;
+   (* PRECONDICION: EsVaciaListaDePersonas(L)=FALSE;
+      TRUE si hay alguien trabajando en el terreno x,y *)
+
+function HayAlguienSinTrabajarLDP (L: ListaDePersonas): Boolean;
+   (*TRUE si por lo menos una persona está sin trabajar*)
+
+*** DEST *** ************************************************************************
+
+procedure EliminarPersonanoTrabajandoLDP (var L: ListaDePersonas);
+   (* Elimina la primer persona que encuentre que no está trabajando en la LDP.
+      Precondición: HayAlguienSinTrabajarLDP (L) = TRUE*)
+
+procedure EliminarPrimeroLDP (var L: ListaDePersonas);
+   (*Elimina el primer nodo de la LDP*)
+
+procedure BorrarPersonaListaDePersonas (P: Persona; var L: ListaDePersonas); ???
+   (*Borra a la persona P de la lista de personas, tiene que hacer borrado fisico*)
+
+procedure BorrarPersonaTrabajandoCoordsLDP (x,y: Integer; var L: ListaDePersonas);
+   (* PRECONDICION: Tiene que haber una persona trabajando en esas coordenadas.
+      (HayAlguienTrabajandoCoords (x,y,L) = TRUE)
+      Borra a la persona que está trabajando en la posición x,y del mapa. *)
+
+procedure BorrarPrimerPersonaLDP (var L: ListaDePersonas);
+   (* PRECONDICIÓN: EsVaciaListaDePersonas(L) = FALSE;
+      Borra fisicamente a la primer persona de la lista. *)
+
+procedure DestruirListaDePersonas (var L: ListaDePersonas);
+   (*Borra fisicamente la estructura de la lista y su contenido*)
+
+*** **** *** ************************************************************************

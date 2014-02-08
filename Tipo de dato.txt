@@ -1,0 +1,24 @@
+   ListaDePersonas = ^NodoLDP; {Para tener a toda la poblacion}
+
+   TipoLista = ^Nodo; {Lista SImple}
+   Nodo = Record
+             Persona: UPersonas.Persona;
+             Siguiente: TipoLista;
+          End;
+
+   NodoLDP = RECORD
+                Lista: TipoLista; {Lista de Personas}
+                CantAct: Integer; {Cantidad actual de personas}
+                //CantTrab: Integer; {Cantidad de personas trabajando}
+                CantMax: Integer; {Cantidad maxima de personas}
+             END;
+
+
+Ciudad = ^NodoCiudad;
+        NodoCiudad = record
+           Mapa : UMapa.PtrMapa;
+           Pob: ULiper.ListaDePersonas; {lista de personas + cantidades}
+           {Hay que hacer el tipo de dato que guarda a las personas que están trabajando para poder dibujarlas}
+           PobTrab: ULiPer.ListaDePersonas; {Lista de punteros a las personas de la poblacion que están trabajando}
+           Silos: URSC.PtrSilo;
+        end;

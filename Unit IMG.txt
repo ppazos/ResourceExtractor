@@ -1,0 +1,17 @@
+Se trata de modelar un buffer de bitmaps, para luego referirse a ellos, por ejemplo, para saber que bitmap poner en el mapa en cada tipo de terreno. La idea que los bitmaps se cargan una vez sola en el buffer y luego cuando hay que referenciarse a ellos se usan punteros.
+-----------------------------------------------------------------------------------
+
+function CrearConjBMP (): ConjBMP;
+(*Crea un nuevo buffer (conjunto de bitmaps) vacio, reserva la memoria para guardar los BMPS*)
+
+procedure CargaBMPConjBMP(var c: ConjBMP);
+(*Carga los BMPs que vamos a usar en el buffer*)
+
+function ObtenerBMPConjBMP (Tipo: String; Cant: Integer; c: ConjBMP): PtrBMP;
+(*Dado el tipo del recurso o terreno, y la cantidad de recurso, devuelve un puntero al bitmap corresp.*)
+
+procedure DestruirConjBMP (var c: ConjBMP);
+(*Libera toda la memoria reservada por el buffer c*)
+
+procedure DibujarMapa(Mapa: PtrMapa); (*Tendría que ir en una UNIT arriba de UIMG y UMAPA en output*)
+(*Dada una matriz mapa, dibuja el correspondiente mapa en form1.image1*)

@@ -1,0 +1,7 @@
+1. pasto.bmp (num terreno 0)
+2. oro1.bmp (num terreno 1)
+3. oro2.bmp (num terreno 1)
+4. granja1.bmp (num terreno 2)
+5. granja2.bmp (num terreno 2)
+6. arbol1.bmp (num terreno 4)
+7. casa.bmp (num terreno 3)

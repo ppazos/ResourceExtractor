@@ -1,0 +1,33 @@
+Lista de operaciones sobre el tipo de dato persona.
+
+(*CONS*)
+   function CrearPersona(): Persona;
+   (* Reserva memoria e inicializa todas las variables de Persona, crea un nueva persona. *)
+
+(*AUX*)
+   procedure PonerATrabajarPersona (var P: Persona; x, y: Integer);
+   (* Prec: El lugar x,y no está ocupado. Pone a trabajar a la persona P en el lugar x,y *)
+
+   procedure PonerADescansarPersona (var P: Persona);
+   (* Hace que la persona P deje de trabajar. Si no estaba trabajamdo, no tiene efecto. *)
+
+(*PRED*)
+   function EstaTrabajandoPersona (P: Persona): Boolean;
+   (* TRUE si la persona P está trabajado *)
+
+(*SEL*)
+   procedure ObtenerLugarTrabajando (P: Persona; var a,b: integer);
+   (* PREC: P tiene que estar trabajando. Devuelve las coordenadas donde P está trabajando. *)
+
+   function ObtenerEdadPersona (P: Persona): Integer;
+   (* Cantidad de turnos que pasaron desde que la persona fue creada *)
+
+   procedure EstadisticasPersona (P: Persona; VAR oro, mad, com: Integer);
+   (* Devuelve la cantidad de oro, madera, comida extraída por esa persona hasta el momento *)
+
+   function CantidadExtraccionPersona (P: Persona): Integer;
+   (* Devuelve la cantidad de recurso que extrae la persona P por turno. *)
+
+(*DEST*)
+   procedure DestruirPersona (var P: Persona);
+   (* Libera memoria reservada por P, ¡Mata a la persona!, ASESINO! *)

@@ -1,0 +1,9 @@
+   function CrearMapa(t: Integer): PtrMapa; //crea un nuevo mapa aleatorio.
+   (* procedure CargaBMP(); EN IMG *)//carga los BMPs que se van a usar para dibujar el mapa.
+   procedure AssignNFO(Mapa: PtrMapa; CBMP: UIMG.ConjBMP); //asigna BMPs, cantidad de recursos, etc a cada terreno.
+   (* procedure DibujarMapa(Mapa: PtrMapa); EN IMG*)
+
+   //DeterminarLugar talvez vaya en otro TAD como funciones complementarias,
+   //ya que solo sirve para hacer select y cosas parecidas.
+   //procedure DeterminaLugar(Mapa: PtrMapa; xm,ym: integer; var h: integer; var v: integer); //teniendo las coordenadas del mouse devuelve el lugar del mapa donde está el mouse.
+   procedure DestruirMapa(var Mapa: PtrMapa);

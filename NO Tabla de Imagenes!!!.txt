@@ -1,0 +1,4 @@
+OBS: la tabla no se puede hacer así porque hay terrenos que pueden tener 2 imágenes.
+
+
+Para dibujar el mapa, estaría bueno asociar a cada terreno una imagen, es como una funcion que dado un terreno ne devuelve una imagen, entonces, puedo hacer un array que tenga de indices los numeros de los terrenos y de info un pointer a la imagen correspondiente a ese terreno, entonces no tengo que guardar para cada terreno un poiter, todos los terrenos iguales tienen imagenes iguales, y cuando quiero dibujar el mapa, recorro la matriz llamando constantemente a la funcion que me devuelve, dado el terreno, el pointer a la imagen que quiero dibujar.
